@@ -18,3 +18,7 @@ repos:
       rev: v0.991
       hooks:
           - id: mypy
+    - repo: https://github.com/psf/black
+      rev: 22.10.0 # must match test-requirements.txt
+      hooks:
+          - id: black
