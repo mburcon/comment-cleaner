@@ -19,7 +19,7 @@ repos:
       hooks:
           - id: mypy
     - repo: https://github.com/psf/black
-      rev: 22.10.0 # must match test-requirements.txt
+      rev: 22.10.0
       hooks:
           - id: black
     - repo: https://github.com/PyCQA/isort
