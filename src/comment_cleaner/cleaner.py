@@ -27,5 +27,5 @@ def main():
         f.writelines(cleaned)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
