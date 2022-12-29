@@ -18,7 +18,7 @@ def main():
         with open(args.file, "r") as f:
             content = f.read()
     except FileNotFoundError:
-        print(f"File {args.file} not found")
+        print(f"File {args.file} not found.")
         sys.exit(1)
 
     cleaned = clean(content)
