@@ -6,24 +6,25 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
-      # Check out the repository
-      - uses: actions/checkout@v2
+      - name: "Checkout source"
+        uses: actions/checkout@v2
 
-      # Set up a Python environment
-      - uses: actions/setup-python@v3
+      - name: "Setup python"
+        uses: actions/setup-python@v3
         with:
           python-version: 3.11
 
-      # Install poetry
-      - run: |
+      - name: "Install poetry"
+        run: |
           python -m pip install --upgrade pip
           pip install poetry
 
       # Install package dependencies
-      - run: poetry install
+      - name: "Install dependencies"
+        run: poetry install
 
       # Configure poetry
       - name: "Configure poetry"
@@ -33,6 +34,6 @@ jobs:
           poetry config repositories.testpypi https://test.pypi.org/legacy/
           poetry config pypi-token.testpypi $pypi_token
 
-      # Build and upload the package to PyPI
-      - run: |
+      - name: "Build and publish to PyPi"
+        run: |
           poetry publish --build -r testpypi
